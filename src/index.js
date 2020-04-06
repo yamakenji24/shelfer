@@ -1,13 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import {BrowserRouter, Route} from 'react-router-dom';
+import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
+import './stylesheets/index.css';
+import Login from './components/logins';
+import configureStore from './store';
+
+const store = configureStore()
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <div>
+        <Route exact path="/" component={Login}/>
+      </div>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
