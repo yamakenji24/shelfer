@@ -14,3 +14,9 @@ export function searchBook(Isbn) {
     Isbn: Isbn
   }
 }
+export function toStorage(items) {
+  return {
+    type: actionTypes.SENDSTORAGE,
+    storage: items
+  }
+}

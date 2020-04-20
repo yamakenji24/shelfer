@@ -25,7 +25,14 @@ function book(state=[], action) {
   switch(action.type) {
   case actionTypes.RECEIVEBOOK:
     return {
-      items: action.items      
+      items: action.items,
+      ...state
+    }
+  case actionTypes.SAVESTORAGE:
+    console.log(state, action)
+    return {
+      storage: action.storage,
+      ...state
     }
   default: return state;
   }

@@ -10,7 +10,10 @@ function* fetchBookInfo(Isbn) {
     .then(res => res.items.map(item => ({
       id: item.id,
       title: item.volumeInfo.title,
+      authors: item.volumeInfo.authors,
+      description: item.volumeInfo.description,
       publishedDate: item.volumeInfo.publishedDate,
+      infoLink: item.volumeInfo.infoLink,
       imageLinks: item.volumeInfo.imageLinks.smallThumbnail,
     })))
 }
