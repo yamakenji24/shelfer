@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import Home from './home';
 import Rental from './rental';
 import Search from './search';
-import About from './about';
 
 import TabContent from './tabs/tab-content';
 import TabList from './tabs/tab-list';
@@ -31,8 +30,6 @@ class DashBoard extends Component {
       return <Rental />;
     case Panels.SEARCH_PANEL:
       return <Search />;
-    case Panels.ABOUT_PANEL:
-      return <About />;
     default:
       return null;
     }
@@ -46,7 +43,6 @@ class DashBoard extends Component {
           <TabListItem dist={Panels.HOME_PANEL} label="Home" changePanel={this.changePanel.bind(this)}/>
           <TabListItem dist={Panels.RENTAL_PANEL} label="Rental" changePanel={this.changePanel.bind(this)}/>
           <TabListItem dist={Panels.SEARCH_PANEL} label="Search" changePanel={this.changePanel.bind(this)}/>
-          <TabListItem dist={Panels.ABOUT_PANEL} label="About" changePanel={this.changePanel.bind(this)}/>
         </TabList>
         <TabContent>
           {panel}
