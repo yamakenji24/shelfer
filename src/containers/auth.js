@@ -10,11 +10,6 @@ class Auth extends Component {
     }
   }
 
-  static getDerivedStateFromProps(props, state) {
-    console.log("calling auth getderived: ", props, state)
-    return null;
-  }
-
   render() {
     console.log(this.props)
     return (
