@@ -6,4 +6,3 @@ export const SAVETOKEN = 'SAVETOKEN';
 export const SEARCHBOOK = 'SEARCHBOOK';
 export const RECEIVEBOOK = 'RECEIVEBOOK';
 export const SENDSTORAGE = 'SENDSTORAGE';
-export const SAVESTORAGE = 'SAVESTORAGE';

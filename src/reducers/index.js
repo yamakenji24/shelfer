@@ -27,10 +27,6 @@ function book(state=[], action) {
     return {
       items: action.items,
     }
-  case actionTypes.SAVESTORAGE:
-    return {
-      storage: action.storage,
-    }
   default: return state;
   }
 }
