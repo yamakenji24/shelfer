@@ -26,13 +26,10 @@ function book(state=[], action) {
   case actionTypes.RECEIVEBOOK:
     return {
       items: action.items,
-      ...state
     }
   case actionTypes.SAVESTORAGE:
-    console.log(state, action)
     return {
       storage: action.storage,
-      ...state
     }
   default: return state;
   }

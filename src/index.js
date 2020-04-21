@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //import {BrowserRouter, Route} from 'react-router-dom';
 import {Route, Switch} from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
@@ -11,6 +13,7 @@ import DashBoard from './components/dashboard';
 import Auth from './containers/auth';
 import configureStore, {history} from './store';
 
+library.add(faSearch, faShoppingCart);
 const store = configureStore()
 
 ReactDOM.render(

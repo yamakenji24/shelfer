@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Modal from 'react-modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import _ from 'lodash';
 
 Modal.setAppElement('#root')
@@ -32,7 +33,10 @@ export default class ShowStorage extends Component {
     return (
       <div>
         <div className="modal-cart">
-          <button onClick={this.openModal}>{this.props.storage.length}  カート</button>
+          <button className="cart-btn" onClick={this.openModal}>
+            {this.props.storage.length}
+            <FontAwesomeIcon icon={['fas', 'shopping-cart']} size="2x" />
+          </button>
         </div>
         <Modal
           className="modal-storage"

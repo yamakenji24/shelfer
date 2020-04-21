@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as Actions from '../../actions';
 import '../../stylesheets/search.css';
 
@@ -66,11 +67,13 @@ class Search extends Component {
     const showbooks = this.showBooks();
     return (
       <div className="search-wrapper">
-        <form>
-          <h2>検索フォーム</h2>
-          <input type="text" ref="bookisbn" />
-          <button onClick={this.onSearch}>検索</button>
-        </form>
+        <h2>検索フォーム</h2>
+        <div className="search-box">
+          <input className="search-txt" type="text" ref="bookisbn" />
+          <button className="search-btn" onClick={this.onSearch}>
+            <FontAwesomeIcon icon='search' size='lg' />
+          </button>
+        </div>
         <ShowStorage storage={this.state.storage}/>
         <div className="showBooks">{showbooks}</div>
       </div>
