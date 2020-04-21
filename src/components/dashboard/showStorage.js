@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as Actions from '../../actions';
 import _ from 'lodash';
 
 Modal.setAppElement('#root')
 
-export default class ShowStorage extends Component {
+class ShowStorage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +15,7 @@ export default class ShowStorage extends Component {
     }
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.saveStorage = this.saveStorage.bind(this)
   }
   openModal() {
     this.setState({modalIsOpen: true})
@@ -27,6 +30,9 @@ export default class ShowStorage extends Component {
       </div>
     ))
   }
+  saveStorage() {
+    this.props.toSagaStorage(this.props.storage, this.props.login.token)
+  }
   
   render() {
     const storage = this.storage()
@@ -34,7 +40,7 @@ export default class ShowStorage extends Component {
       <div>
         <div className="modal-cart">
           <button className="cart-btn" onClick={this.openModal}>
-            {this.props.storage.length}
+            {this.props.len}
             <FontAwesomeIcon icon={['fas', 'shopping-cart']} size="2x" />
           </button>
         </div>
@@ -44,11 +50,21 @@ export default class ShowStorage extends Component {
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
         >
-          {storage}          
+          {storage}
+          <button onClick={this.saveStorage}>DBに登録〜</button>
           <button onClick={this.closeModal}>閉じる</button>
         </Modal>
       </div>
     )
   }
 }
-
+function mapStateToProps(state, ownProps) {
+  const {storage} = ownProps;
+  return {storage, state};
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    toSagaStorage: (storage, token) => dispatch(Actions.toSagaStorage(storage, token))
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ShowStorage);

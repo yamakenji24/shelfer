@@ -27,7 +27,12 @@ class Search extends Component {
     const {storage} = this.state
     const newStorage = {
       id : e.currentTarget.getAttribute('data-id'),
-      title: e.currentTarget.getAttribute('data-title')
+      title: e.currentTarget.getAttribute('data-title'),
+      /*authors: e.currentTarget.getAttribute('data-authors'),
+      descri: e.currentTarget.getAttribute('data-descri'),
+      pbDate: e.currentTarget.getAttribute('data-pbdate'),
+      infoLink: e.currentTarget.getAttribute('data-infolink'),
+      imageLink: e.currentTarget.getAttribute('data-imagelink'),*/
     }
     storage.push(newStorage)
     this.setState({storage})
@@ -47,6 +52,11 @@ class Search extends Component {
           onClick={this.saveStorage}
           data-id={value.id}
           data-title={value.title}
+          data-authors={value.authors}
+          data-descri={value.description}
+          data-pbdate={value.publishedDate}
+          data-infolink={value.infoLink}
+          data-imagelink={value.imageLinks}
         >
           登録
         </button>
@@ -62,7 +72,7 @@ class Search extends Component {
       </div>
     ))
   }
-  
+    
   render() {
     const showbooks = this.showBooks();
     return (
@@ -74,7 +84,7 @@ class Search extends Component {
             <FontAwesomeIcon icon='search' size='lg' />
           </button>
         </div>
-        <ShowStorage storage={this.state.storage}/>
+        <ShowStorage storage={this.state.storage} len={this.state.storage.length}/>
         <div className="showBooks">{showbooks}</div>
       </div>
     )
