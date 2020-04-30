@@ -31,6 +31,7 @@ class ShowStorage extends Component {
     ))
   }
   saveStorage() {
+    //this.props.toSagaStorage(this.props.storage, "kenji")
     this.props.toSagaStorage(this.props.storage, this.props.login.token)
   }
   
@@ -60,7 +61,7 @@ class ShowStorage extends Component {
 }
 function mapStateToProps(state, ownProps) {
   const {storage} = ownProps;
-  return {storage, state};
+  return {storage}, state;
 }
 function mapDispatchToProps(dispatch) {
   return {

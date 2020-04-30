@@ -3,9 +3,9 @@ import axios from 'axios';
 import * as actionTypes from '../../constants/actions';
 
 function* fetchStorageInfo(storage, token) {
-  return yield axios.post("http://localhost:8080/storage", {
+  return yield axios.post("http://localhost:8080/storage/save", {
     headers : {
-      "Authorization": `Bearer ${token}`,
+      //"Authorization": `Bearer ${token}`,
       "Content-Type": "application/json",
     },
     storage: storage,
