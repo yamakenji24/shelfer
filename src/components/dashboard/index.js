@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import Home from './home';
 import Rental from './rental';
 import Search from './search';
@@ -37,6 +36,7 @@ class DashBoard extends Component {
   
   render() {
     const panel = this.getPanel();
+    
     return (
       <div>
         <TabList>

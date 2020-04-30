@@ -26,13 +26,13 @@ class Search extends Component {
     e.preventDefault();
     const {storage} = this.state
     const newStorage = {
-      id : e.currentTarget.getAttribute('data-id'),
+      book_id : e.currentTarget.getAttribute('data-id'),
       title: e.currentTarget.getAttribute('data-title'),
-      /*authors: e.currentTarget.getAttribute('data-authors'),
-      descri: e.currentTarget.getAttribute('data-descri'),
+      authors: e.currentTarget.getAttribute('data-authors'),
+      descrip: e.currentTarget.getAttribute('data-descri'),
       pbDate: e.currentTarget.getAttribute('data-pbdate'),
       infoLink: e.currentTarget.getAttribute('data-infolink'),
-      imageLink: e.currentTarget.getAttribute('data-imagelink'),*/
+      imageLink: e.currentTarget.getAttribute('data-imagelink'),
     }
     storage.push(newStorage)
     this.setState({storage})
