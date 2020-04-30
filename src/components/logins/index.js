@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
-
 import * as Actions from '../../actions';
 import '../../stylesheets/login.css';
 
@@ -46,10 +44,10 @@ class login extends Component {
   
   render() {
     const loginform = this.formLogin()
-    return (
-      <div>
+    return(
+      <React.Fragment>
         {loginform}
-      </div>
+      </React.Fragment>
     )
   }
 }

@@ -14,10 +14,8 @@ function login(state='', action) {
       status: null,
       token: action.token
     }
-  default: return {
-    status: null,
-    token: null
-  };
+  default:
+    return state
   }
 }
 
