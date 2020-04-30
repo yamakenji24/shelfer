@@ -21,3 +21,9 @@ export function toSagaStorage(items, token) {
     token: token,
   }
 }
+export function requestAllBookdata(token) {
+  return {
+    type: actionTypes.REQUESTALLBOOKDATA,
+    token: token
+  }
+}
