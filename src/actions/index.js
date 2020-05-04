@@ -14,16 +14,14 @@ export function searchBook(Isbn) {
     Isbn: Isbn
   }
 }
-export function toSagaStorage(items, token) {
+export function toSagaStorage(items) {
   return {
     type: actionTypes.SENDSTORAGE,
     storage: items,
-    token: token,
   }
 }
-export function requestAllBookdata(token) {
+export function requestAllBookdata() {
   return {
     type: actionTypes.REQUESTALLBOOKDATA,
-    token: token
   }
 }

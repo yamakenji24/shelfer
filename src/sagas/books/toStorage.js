@@ -18,14 +18,15 @@ function* fetchStorageInfo(data, token) {
     })
 }
 
-function* storageInfo(storage, token) {
+function* storageInfo(storage) {
   const data = {storage: storage}
+  const token = localStorage.getItem('token')
   yield call(fetchStorageInfo, data, token);
 }
 
 export default function* toStorage() {
   while(typeof x === 'undefined') {
-    const {storage, token} = yield take(actionTypes.SENDSTORAGE);
-    yield fork(storageInfo, storage, token);
+    const {storage} = yield take(actionTypes.SENDSTORAGE);
+    yield fork(storageInfo, storage);
   }
 }

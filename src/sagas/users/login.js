@@ -22,7 +22,8 @@ function* userInfo(user, pass) {
   if(error && error.response.status === 401) {
     yield put({type: actionTypes.UNAUTH, status: "login failed"})
   } else {
-    yield put({type: actionTypes.SAVETOKEN, token: response.data.token})
+    localStorage.setItem('token', response.data.token)
+    //yield put({type: actionTypes.SAVETOKEN, token: response.data.token})
     yield put(push('/dashboard'))
   }
 }

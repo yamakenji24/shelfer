@@ -15,14 +15,15 @@ function* fetchBookInfo(token) {
     })
 }
 
-function* requestInfo(token) {
-  let dbBook = yield call(fetchBookInfo, token)
+function* requestInfo() {
+  const token = localStorage.getItem('token')
+  let dbBook = yield call(fetchBookInfo, token)  
   yield put({type: actionTypes.GETBOOKSFROMDB, books: dbBook})
 }
 
 export default function* requestBook() {
   while(typeof x === 'undefined') {
-    const {token} = yield take(actionTypes.REQUESTALLBOOKDATA)
-    yield fork(requestInfo, token)
+    yield take(actionTypes.REQUESTALLBOOKDATA)
+    yield fork(requestInfo)
   }
 }

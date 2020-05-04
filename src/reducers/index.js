@@ -7,12 +7,6 @@ function login(state='', action) {
   case actionTypes.UNAUTH:
     return {
       status: action.status,
-      token: action.token
-    }
-  case actionTypes.SAVETOKEN:
-    return {
-      status: null,
-      token: action.token
     }
   default:
     return state

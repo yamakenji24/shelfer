@@ -12,7 +12,7 @@ class Rental extends Component {
   componentDidMount() {
     // 初期時にとってきて更新ごとに追加するか、毎回全部取ってくるか、検討中
     // とりあえず、全部とってくる
-    this.props.requestAllBookdata(this.props.login.token)
+    this.props.requestAllBookdata()
   }
   showDBBook() {
     if(this.props.book.length === 0) {
@@ -48,7 +48,7 @@ function mapStateToProps(state, ownProps) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    requestAllBookdata: (token) => dispatch(Actions.requestAllBookdata(token))
+    requestAllBookdata: () => dispatch(Actions.requestAllBookdata())
   }
 }
 

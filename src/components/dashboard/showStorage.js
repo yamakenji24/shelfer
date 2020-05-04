@@ -32,7 +32,7 @@ class ShowStorage extends Component {
   }
   saveStorage() {
     //this.props.toSagaStorage(this.props.storage, "kenji")
-    this.props.toSagaStorage(this.props.storage, this.props.login.token)
+    this.props.toSagaStorage(this.props.storage)
   }
   
   render() {
@@ -65,7 +65,7 @@ function mapStateToProps(state, ownProps) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    toSagaStorage: (storage, token) => dispatch(Actions.toSagaStorage(storage, token))
+    toSagaStorage: (storage) => dispatch(Actions.toSagaStorage(storage))
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ShowStorage);
