@@ -19,11 +19,17 @@ function login(state='', action) {
   }
 }
 
-function book(state=[], action) {
+function book(state=[], action){
   switch(action.type) {
   case actionTypes.RECEIVEBOOK:
     return {
-      items: action.items,
+      searcheditems: action.items,
+      storeditems: state.storeditems
+    }
+  case actionTypes.GETBOOKSFROMDB:
+    return {
+      storeditems: action.books,
+      searcheditems: state.searcheditems
     }
   default: return state;
   }
