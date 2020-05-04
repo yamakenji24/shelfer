@@ -4,7 +4,7 @@ import * as actionTypes from '../../constants/actions';
 
 function* fetchBookInfo(Isbn) {
   return yield axios.get(
-    `https://www.googleapis.com/books/v1/volumes?q=${Isbn}`,
+    `https://www.googleapis.com/books/v1/volumes?q=${Isbn}&maxResults=40`,
   )
     .then(response => response.data)
     .then(res => res.items.map(item => ({
@@ -14,7 +14,7 @@ function* fetchBookInfo(Isbn) {
       description: item.volumeInfo.description,
       publishedDate: item.volumeInfo.publishedDate,
       infoLink: item.volumeInfo.infoLink,
-      imageLinks: item.volumeInfo.imageLinks.smallThumbnail,
+      imageLinks: item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.smallThumbnail : null,
     })))
 }
 

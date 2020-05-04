@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as Actions from '../../actions';
 import '../../stylesheets/search.css';
-
+import icon from '../../imgs/noPicture.jpeg';
 import ShowDetail from './showDetail';
 import ShowStorage from './showStorage';
 
@@ -41,11 +41,11 @@ class Search extends Component {
     if (this.props.book.length === 0) {
       return null
     }
-    return _.map(this.props.book.items, (value, key, object)=> (
+    return _.map(this.props.book.searcheditems, (value, key, object)=> (
       <div className="books" key={key}>
         <img
           alt = {value.title}
-          src = {value.imageLinks === undefined ? null : value.imageLinks} 
+          src = {value.imageLinks ? value.imageLinks : icon} 
         />
         <p>{value.title}</p>
         <button
