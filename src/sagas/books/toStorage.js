@@ -1,14 +1,14 @@
-import {fork, call, take, put} from 'redux-saga/effects';
+import {fork, call, take} from 'redux-saga/effects';
 import axios from 'axios';
 import * as actionTypes from '../../constants/actions';
 
-function* fetchStorageInfo(storage, token) {
-  return yield axios.post("http://localhost:8080/storage/save", {
+function* fetchStorageInfo(data, token) {
+  return yield axios.post("http://localhost:8080/storage/save", data, {
     headers : {
-      //"Authorization": `Bearer ${token}`,
+      "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json",
     },
-    storage: storage,
+    
   })
     .then(response => {
       console.log(response)
@@ -19,7 +19,8 @@ function* fetchStorageInfo(storage, token) {
 }
 
 function* storageInfo(storage, token) {
-  yield call(fetchStorageInfo, storage, token);
+  const data = {storage: storage}
+  yield call(fetchStorageInfo, data, token);
 }
 
 export default function* toStorage() {
