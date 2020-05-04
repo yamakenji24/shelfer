@@ -8,6 +8,12 @@
     text-align: center;
     
 }
+.slideBooks {
+    width: 50%;
+    position: absolute;
+    left: 25%;
+    top: 10%;
+}
 .showBooks {
     width: 100%;
     padding: 10px;
