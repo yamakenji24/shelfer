@@ -9,12 +9,14 @@
     background: #34495e;
     text-align: center;
 }
-
+.createform {
+    padding-bottom: 10%;
+    padding-right: 80%;
+}
 .box h1 {
-    padding: 20% 0px 0px 0px;
     color: white;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 550;
 }
 
 .box input {
