@@ -26,7 +26,6 @@ class Rental extends Component {
         />
       </div>
     ))
-    
   }
   
   render() {
