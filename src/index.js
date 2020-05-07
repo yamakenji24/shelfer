@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import './stylesheets/index.css';
 import Login from './components/logins';
+import CreateUser from './components/logins/createUser';
 import DashBoard from './components/dashboard';
 import Auth from './containers/auth';
 import configureStore, {history} from './store';
@@ -21,6 +22,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <Switch>
         <Route exact path="/" component={Login} />
+        <Route path="/create" component={CreateUser} />
         <Auth path="/dashboard" component={DashBoard} />
       </Switch>
     </ConnectedRouter>
