@@ -9,16 +9,22 @@ function* fetchBookInfo(token) {
       "Content-Type": "application/json",
     }
   })
-    .then(response => response.data.books)
+    .then(response => {
+      return {response}
+    })
     .catch(error => {
-      console.log(error)
+      return {error}
     })
 }
 
 function* requestInfo() {
   const token = localStorage.getItem('token')
-  let dbBook = yield call(fetchBookInfo, token)  
-  yield put({type: actionTypes.GETBOOKSFROMDB, books: dbBook})
+  let {response, error} = yield call(fetchBookInfo, token)
+  if (error && error.response.status === 401) {
+    localStorage.removeItem('token')
+  } else {
+    yield put({type: actionTypes.GETBOOKSFROMDB, books: response.data.books})
+  }
 }
 
 export default function* requestBook() {
