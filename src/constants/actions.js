@@ -1,6 +1,7 @@
 
 export const AUTH = 'AUTHENTICATE';
 export const UNAUTH = 'UNAUTHORIZED';
+export const CREATEUSER = 'CREATEUSER'
 export const SAVETOKEN = 'SAVETOKEN';
 
 export const SEARCHBOOK = 'SEARCHBOOK';

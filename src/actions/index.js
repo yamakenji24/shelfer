@@ -1,5 +1,13 @@
 import * as actionTypes from '../constants/actions';
 
+export function createUser(newuser, newpass) {
+  return {
+    type: actionTypes.CREATEUSER,
+    newuser: newuser,
+    newpass: newpass
+  }
+}
+
 export function auth(user, pass) {
   return {
     type: actionTypes.AUTH,
