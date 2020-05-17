@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import {BrowserRouter, Route} from 'react-router-dom';
 import {Route, Switch} from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';

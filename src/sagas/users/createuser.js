@@ -1,4 +1,4 @@
-import {fork, take, put, call} from 'redux-saga/effects';
+import {fork, take, call} from 'redux-saga/effects';
 import axios from 'axios';
 
 import * as actionTypes from '../../constants/actions';

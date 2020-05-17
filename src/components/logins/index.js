@@ -14,11 +14,11 @@ class login extends Component {
     }
     this.handleChange = this.handleChange.bind(this);
   }
-
+  
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value})
   }
-    
+  
   onLogin(e) {
     e.preventDefault();
     if (this.state.user && this.state.pass) {
