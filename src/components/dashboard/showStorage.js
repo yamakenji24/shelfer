@@ -33,6 +33,7 @@ class ShowStorage extends Component {
   saveStorage() {
     //this.props.toSagaStorage(this.props.storage, "kenji")
     this.props.toSagaStorage(this.props.storage)
+    this.closeModal()
   }
   
   render() {
@@ -61,7 +62,7 @@ class ShowStorage extends Component {
 }
 function mapStateToProps(state, ownProps) {
   const {storage} = ownProps;
-  return {storage}, state;
+  return state, {storage};
 }
 function mapDispatchToProps(dispatch) {
   return {
